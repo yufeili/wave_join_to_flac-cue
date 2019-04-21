@@ -4,8 +4,6 @@ rm -f CDImage.flac
 rm -f CDImage.cue
 rm -f out.wav
 python ./wave_join.py *.wav -o out.wav
-shntool conv -o flac out.wav -d ./ -O always
-mv out.flac CDImage.flac
-rm -f out.wav
-rm -f out.flac
+ffmpeg -i "out.wav" CDImage.flac
+sed -i 's/out.wav/CDImage.flac/' -i
 exit
