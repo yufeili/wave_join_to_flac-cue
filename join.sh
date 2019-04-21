@@ -6,4 +6,5 @@ rm -f out.wav
 python ./wave_join.py *.wav -o out.wav
 ffmpeg -i "out.wav" CDImage.flac
 sed -i 's/out.wav/CDImage.flac/' -i
+mv out.cue CDImage.cue
 exit
